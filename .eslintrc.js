@@ -11,6 +11,8 @@ module.exports = {
   rules: {
     "class-methods-use-this": "off",
     "no-plusplus": "off",
-    "no-unused-vars": "off"
+    "no-unused-vars": "off",
+    "no-underscore-dangle": 'off',
+    "no-restricted-syntax": 'off'
   }
 };

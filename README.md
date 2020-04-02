@@ -1,39 +1,32 @@
 # autologin-axios-client
 
-a nodejs package that gives an axios instance that auto logins with given credentials. reads user and pass from .env of CWD.
+a quick wrapper around axios-auth-refresh for specific needs and defaults. for nodejs use.
 
 ## Installation
 
 ```bash
-npm i laravel-axios-client
+npm i autologin-axios-client
 # or
-yarn add laravel-axios-client
+yarn add autologin-axios-client
 ```
 
 ## Usage
 
-Currently only bearer token is supported.
 add user pass to .env
 
 ```env
-LAXC_USER="user"
-LAXC_PASS="pass"
+ALXC_USER="user"
+ALXC_PASS="pass"
 ```
 
-then
+dotenv module autoloads the .env and you can use in your refreshAuthLogic
 
 ```js
 const Axios = require('autologin-axios-client');
 const axios = new Axios({
   baseUrl: 'https://example.com/api',
-  loginUrl: '/login',
-  loginScheme: {
-    user: 'username',
-    pass: 'password',
-    // sends { 'username': LAXC_USER, 'password': LAXC_PASS } to loginUrl
-  },
-  type: 'bearer' // only bearer supported right now
-  tokenPath: 'data.token'
+  refreshAuthLogic: (failedRequest: any) => Promise<any>,
+  refreshAuthOptions: {} // options for 'axios-auth-refresh'
 })
 // start calling authorized api
 axios.post('/users/delete-all');
