@@ -1,6 +1,10 @@
-/* eslint-disable no-restricted-syntax,
-  prefer-spread,prefer-rest-params,
-  func-names, no-param-reassign  */
+/* eslint-disable
+  no-restricted-syntax,
+  guard-for-in,
+  prefer-spread,
+  prefer-rest-params,
+  func-names,
+  no-param-reassign */
 // following code is borrowed from nuxt's axios module
 const Axios = require('axios').default;
 
@@ -38,7 +42,7 @@ for (const method of [
 }
 
 const extendAxiosInstance = (axios) => {
-  for (const key of axiosExtra) {
+  for (const key in axiosExtra) {
     axios[key] = axiosExtra[key].bind(axios);
   }
 };
