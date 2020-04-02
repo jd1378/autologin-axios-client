@@ -1,6 +1,6 @@
 # autologin-axios-client
 
-a quick wrapper around axios-auth-refresh for specific needs and defaults. for nodejs use.
+a quick wrapper around [`axios-auth-refresh`](https://github.com/Flyrell/axios-auth-refresh) for specific needs and defaults. for nodejs use.
 
 does autologin on 401 response and redo the request.
 
