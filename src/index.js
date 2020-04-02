@@ -15,14 +15,22 @@ function createAutoLoginAxiosInstance(options) {
   // first one is used for refreshing token (no interceptors)
   const instance = createAxiosInstance(options);
   if (!options.refreshAuthLogic) {
+    const authInfo = {
+      loginUrl: '/login',
+      userField: 'email_or_mobile_number',
+      passField: 'password',
+      tokenPath: 'data.token',
+      tokenType: 'Bearer',
+      ...options.refreshAuthInfo,
+    };
     options.refreshAuthLogic = async (failedRequest) => {
-      const resp = await instance.post('/login', {
-        email_or_mobile_number: process.env.ALXC_USER,
-        password: process.env.ALXC_PASS,
+      const resp = await instance.post(authInfo.loginUrl, {
+        [authInfo.userField]: process.env.ALXC_USER,
+        [authInfo.passField]: process.env.ALXC_PASS,
       }, { skipAuthRefresh: true });
-      const token = get(resp, 'data.token', false);
+      const token = get(resp, authInfo.tokenPath, false);
       if (token) {
-        instance.setToken(token, 'Bearer');
+        instance.setToken(token, authInfo.tokenType);
       } else {
         throw new Error('Refresh token response invalid');
       }
