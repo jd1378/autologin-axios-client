@@ -1,5 +1,6 @@
 /* eslint-disable no-param-reassign */
-const createAuthRefreshInterceptor = require('axios-auth-refresh');
+require('./config');
+const createAuthRefreshInterceptor = require('axios-auth-refresh').default;
 const get = require('lodash/get');
 const { createAxiosInstance } = require('./axios');
 
@@ -19,15 +20,16 @@ function createAutoLoginAxiosInstance(options) {
       loginUrl: '/login',
       userField: 'email_or_mobile_number',
       passField: 'password',
-      tokenPath: 'data.token',
+      tokenPath: 'token',
       tokenType: 'Bearer',
       ...options.refreshAuthInfo,
     };
     options.refreshAuthLogic = async (failedRequest) => {
-      const resp = await instance.post(authInfo.loginUrl, {
+      const data = {
         [authInfo.userField]: process.env.ALXC_USER,
         [authInfo.passField]: process.env.ALXC_PASS,
-      }, { skipAuthRefresh: true });
+      };
+      const resp = await instance.$post(authInfo.loginUrl, data, { skipAuthRefresh: true });
       const token = get(resp, authInfo.tokenPath, false);
       if (token) {
         instance.setToken(token, authInfo.tokenType);
@@ -41,7 +43,13 @@ function createAutoLoginAxiosInstance(options) {
       skipWhileRefreshing: false,
     };
   }
-  createAuthRefreshInterceptor(instance, options.refreshAuthLogic, options.refreshAuthOptions);
+  const id = createAuthRefreshInterceptor(
+    instance,
+    options.refreshAuthLogic,
+    options.refreshAuthOptions,
+  );
+  instance.authRefreshInterceptorId = id;
+
   return instance;
 }
 
