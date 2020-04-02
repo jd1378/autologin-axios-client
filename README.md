@@ -48,7 +48,9 @@ const axios = new Axios({
     loginUrl: '/login',
     userField: 'email_or_mobile_number',
     passField: 'password',
-    // it will send { email_or_mobile_number: process.env.ALXC_USER, password: process.env.ALXC_PASS }
+    user: process.env.ALXC_USER,
+    pass: process.env.ALXC_PASS,
+    // it will send { email_or_mobile_number: user, password: pass }
     tokenPath: 'data.token',
     tokenType: 'Bearer',
   }

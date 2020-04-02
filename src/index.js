@@ -20,14 +20,16 @@ function createAutoLoginAxiosInstance(options) {
       loginUrl: '/login',
       userField: 'email_or_mobile_number',
       passField: 'password',
+      user: process.env.ALXC_USER,
+      pass: process.env.ALXC_PASS,
       tokenPath: 'token',
       tokenType: 'Bearer',
       ...options.refreshAuthInfo,
     };
     options.refreshAuthLogic = async (failedRequest) => {
       const data = {
-        [authInfo.userField]: process.env.ALXC_USER,
-        [authInfo.passField]: process.env.ALXC_PASS,
+        [authInfo.userField]: authInfo.user,
+        [authInfo.passField]: authInfo.pass,
       };
       const resp = await instance.$post(authInfo.loginUrl, data, { skipAuthRefresh: true });
       const token = get(resp, authInfo.tokenPath, false);
