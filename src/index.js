@@ -44,3 +44,5 @@ function createAutoLoginAxiosInstance(options) {
   createAuthRefreshInterceptor(instance, options.refreshAuthLogic, options.refreshAuthOptions);
   return instance;
 }
+
+module.exports = createAutoLoginAxiosInstance;
