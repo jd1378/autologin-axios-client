@@ -42,7 +42,7 @@ const axios = new Axios({
     user: process.env.ALXC_USER,
     pass: process.env.ALXC_PASS,
     // it will send { email_or_mobile_number: user, password: pass }
-    tokenPath: 'data.token',
+    tokenPath: 'token',
     tokenType: 'Bearer',
   }
 })
