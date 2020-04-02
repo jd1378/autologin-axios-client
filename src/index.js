@@ -1,5 +1,4 @@
 /* eslint-disable no-param-reassign */
-require('./config');
 const createAuthRefreshInterceptor = require('axios-auth-refresh').default;
 const get = require('lodash/get');
 const { createAxiosInstance } = require('./axios');

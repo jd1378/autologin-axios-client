@@ -14,15 +14,6 @@ yarn add autologin-axios-client
 
 ## Usage
 
-add user pass to .env
-
-```env
-ALXC_USER="user"
-ALXC_PASS="pass"
-```
-
-dotenv module autoloads the .env and you can use in your refreshAuthLogic
-
 ```js
 const Axios = require('autologin-axios-client');
 const axios = new Axios({
@@ -36,7 +27,7 @@ const axios = new Axios({
 axios.post('/users/delete-all');
 ```
 
-or
+or use the defaults and provide following env variables using `dotenv` module or other means.
 
 ```js
 const Axios = require('autologin-axios-client');
