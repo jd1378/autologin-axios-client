@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "axios-auth-refresh": "^2.2.4",
-    "lodash": "^4.17.19"
+    "axios-auth-refresh": "^2.2.6",
+    "lodash": "^4.17.20"
   }
 }
