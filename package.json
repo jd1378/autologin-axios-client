@@ -1,6 +1,6 @@
 {
   "name": "autologin-axios-client",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "gives an axios instance that auto logins with given credentials",
   "main": "src/index.js",
   "files": [
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "axios-auth-refresh": "^2.2.6",
+    "axios-auth-refresh": "^2.2.7",
     "lodash": "^4.17.20"
   }
 }
