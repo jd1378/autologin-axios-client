@@ -111,10 +111,10 @@ astral-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-1.0.0.tgz#6c8c3fb827dd43ee3918f27b82782ab7658a6fd9"
   integrity sha512-+Ryf6g3BKoRc7jfp7ad8tM4TtMiaWvbF/1/sQcZPkkS7ag3D5nMBCe2UfOTONtAkaG0tO0ij3C5Lwmf1EiyjHg==
 
-axios-auth-refresh@2.2.7:
-  version "2.2.7"
-  resolved "https://registry.yarnpkg.com/axios-auth-refresh/-/axios-auth-refresh-2.2.7.tgz#922f458129ed653d9bd0d732743bf9bba4524f12"
-  integrity sha512-5gdrwRG3luW/BHIwyh7vZk9AFkC3tOkWhE4yJJW0Dno36kcTHN8V87SxH52m3HF8bQpORaV3RNmuwlOT8pKOOw==
+axios-auth-refresh@^2.2.7:
+  version "2.2.8"
+  resolved "https://registry.yarnpkg.com/axios-auth-refresh/-/axios-auth-refresh-2.2.8.tgz#de420b6b5d6efdb4ad3666e44c38960a9b08f382"
+  integrity sha512-WR59uCgO9VppC9VQU6vtszrAHnF3RtylkGltOGldfB4Rw+my0j9WdJuvRzMwiwTh+LmG/SQWzgeCfFYf8N4FIA==
 
 axios@^0.19.2:
   version "0.19.2"
@@ -832,9 +832,9 @@ locate-path@^2.0.0:
     path-exists "^3.0.0"
 
 lodash@^4.17.14, lodash@^4.17.19, lodash@^4.17.20:
-  version "4.17.20"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
-  integrity sha512-PlhdFcillOINfeV7Ni6oF1TAEayyZBoZ8bcshTHqOYJYlrqzRK5hagpagky5o4HfCzzd1TRkXPMFq6cKk9rGmA==
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 mimic-fn@^2.1.0:
   version "2.1.0"
