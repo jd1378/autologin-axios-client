@@ -30,7 +30,9 @@ function createAutoLoginAxiosInstance(options) {
         [authInfo.userField]: authInfo.user,
         [authInfo.passField]: authInfo.pass,
       };
-      const resp = await instance.$post(authInfo.loginUrl, data, { skipAuthRefresh: true });
+      const resp = await instance.$post(authInfo.loginUrl, data, {
+        skipAuthRefresh: true,
+      });
       const token = get(resp, authInfo.tokenPath, false);
       if (token) {
         instance.setToken(token, authInfo.tokenType);
@@ -41,13 +43,13 @@ function createAutoLoginAxiosInstance(options) {
   }
   if (!options.refreshAuthOptions) {
     options.refreshAuthOptions = {
-      skipWhileRefreshing: false,
+      pauseInstanceWhileRefreshing: true,
     };
   }
   const id = createAuthRefreshInterceptor(
     instance,
     options.refreshAuthLogic,
-    options.refreshAuthOptions,
+    options.refreshAuthOptions
   );
   instance.authRefreshInterceptorId = id;
 
