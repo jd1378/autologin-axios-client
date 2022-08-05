@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.0
+
+- updated dependencies
+
 ## 2.0.1
 
 - incorrect readme
